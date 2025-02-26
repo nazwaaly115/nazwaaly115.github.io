@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Kelayakan Lomba Lari</title>
+</head>
+<body>
+    <h4>Hello Peserta Lomba Lari! Terimakah telah mengisi data nya. Goodluck...</h4>
+
+    <hr>
+
+    <script> 
+        alert("Hello Peserta Lomba Lari! Silahkan isi data berikut ya...");
+        const nama = prompt("Lampirkan nama lengkap anda");
+        document.writeln("<br>Nama: "+nama);
+        const usia = prompt("Lampirkan usia anda");
+        document.writeln("<br>Usia: "+usia);
+        const pernah_ikut_lomba = confirm("Apakah anda pernah mengikuti lomba sebelumnya ? (OK = Ya, Cancel = Tidak)");
+        document.writeln("<br>Pernah ikut lomba: "+pernah_ikut_lomba);
+        const waktu_lari = prompt("Lampirkan waktu lari anda");
+        document.writeln("<br>Waktu lari: "+waktu_lari);
+        document.writeln("<hr>");
+
+          // Menentukan apakah memenuhi syarat 
+          let memenuhi_syarat_waktu = (waktu_lari < 12)
+        document.writeln("<br>Memenuhi syarat waktu? "+memenuhi_syarat_waktu);
+        let apakah_diterima = usia >= 18 && (pernah_ikut_lomba || memenuhi_syarat_waktu );
+        document.writeln("<br>Apakah diterima? "+apakah_diterima);
+
+        // Menampilan hasil akhir
+        if(apakah_diterima ) {
+            alert("Selamat, Anda diterima sebagai peserta lomba!");
+            } else{
+               alert("Maaf, Anda tidak memenuhi syarat untuk lomba.")
+            }
+
+        const konfirmasi = confirm("Apakah input anda sudah sesuai?")
+        if(konfirmasi==true){
+            document.writeln("Langkah berikutnya: "+menampilkan_hasil_akhir );
+        }else{
+            document.writeln("Hasilnya tidak di print");
+        }
+    
+    </script>
+    
+
+</body>
+</html>
