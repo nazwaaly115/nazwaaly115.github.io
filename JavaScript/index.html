@@ -33,12 +33,12 @@
 <body>
     <h1>Daftar Produk</h1>
     <button onclick="fetchQuotes()"> Semua Quotes </button>
-    <button onclick="fetchQuotesById()">Pilih Quotes Sendiri Dari ID</button>
+    <button onclick="tampilkanQuotes()">Pilih Quotes Sendiri Dari ID</button>
     
     <div id="output"></div>
 
     <script>
-        function tampilkanQuotes () {
+        function tampilkanQuotes() {
             const id = prompt("Hello Pengguna Kamu Bisa Memilih ID 1-30 Quotes ya:");
             fetchQuotesById(id)
         }
