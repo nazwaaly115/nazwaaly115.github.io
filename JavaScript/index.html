@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API - DummyJSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Produk</h1>
+    <button onclick="fetchQuotes()"> Semua Quotes </button>
+    <button onclick="fetchQuotesById()">Pilih Quotes Sendiri Dari ID</button>
+    
+    <div id="output"></div>
+
+    <script>
+        function tampilkanQuotes () {
+            const id = prompt("Hello Pengguna Kamu Bisa Memilih ID 1-30 Quotes ya:");
+            fetchQuotesById(id)
+        }
+
+        // Fungsi untuk mengambil semua quotes
+        async function fetchQuotes() {
+            try {
+                const response = await fetch(`https://dummyjson.com/quotes`);
+                const data = await response.json();
+                displayQuotes(data.quotes);
+            } catch (error) {
+                console.error('Error fetching quotes:', error);
+            }
+        }
+
+        // Fungsi untuk mengambil satu quotes berdasarkan ID
+        async function fetchQuotesById(id) {
+            try {
+                const response = await fetch(`https://dummyjson.com/quotes/${id}`);
+                const quotes = await response.json();
+                displayQuotes([quotes]);
+            } catch (error) {
+                console.error('Error fetching quotes:', error);
+            }
+        }
+
+        // Fungsi untuk menampilkan quotes ke halaman
+        function displayQuotes(quotes) {
+            const output = document.getElementById('output');
+            output.innerHTML = ''; // Kosongkan sebelum menampilkan data baru
+
+            quotes.forEach(quotes => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${quotes.quote}</h3>
+                    <p>Penulis: ${quotes.author}</p>
+                `;
+                output.appendChild(card); 
+            });
+        }
+    </script>
+</body>
+</html>
