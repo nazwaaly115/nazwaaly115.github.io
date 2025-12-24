@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>QR List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        a {
+            display: block;
+            margin: 15px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Daftar QR</h1>
+
+    <a href="qr_asli.html">QR Asli</a>
+    <a href="qr_dummy.html">QR Dummy</a>
+
+</body>
+</html>
